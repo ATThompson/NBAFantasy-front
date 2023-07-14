@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://fantasystatsback.azurewebsites.net'
+  //baseUrl: 'https://fantasystatsback.azurewebsites.net'
+
+  baseUrl: 'http://localhost:8080'
 };
 
 /*

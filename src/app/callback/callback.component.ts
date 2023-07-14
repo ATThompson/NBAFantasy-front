@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {SecurityService} from "../security.service";
 
 @Component({
-  selector: 'app-callback',
+  selector: 'fs-callback',
   templateUrl: './callback.component.html',
   styleUrls: ['./callback.component.scss']
 })

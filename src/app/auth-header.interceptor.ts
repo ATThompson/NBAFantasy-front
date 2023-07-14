@@ -15,13 +15,15 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    console.log("ON PASSE INTERCEPT")
     const req = request.clone({
-      setHeaders: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + this.securityService.getToken()
-      },
-      withCredentials: true,
+      // setHeaders: {
+      //   'Content-Type': 'application/json',
+      //   Accept: 'application/json',
+      //   Authorization: 'Bearer ' + this.securityService.getToken(),
+      // },
+       withCredentials: true,
+
 
     });
     return next.handle(req);

@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import { environment } from '../environments/environment';
 
 @Component({
-  selector: 'app-home',
+  selector: 'fs-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   infos(){
 
-    this.http.get(environment.baseUrl + '/v1/home/infos',  {responseType: 'text'}).subscribe(data=> console.log(data));
+    this.http.get(environment.baseUrl,  {responseType: 'text'}).subscribe(data=> console.log(data));
   }
 
   logout()
