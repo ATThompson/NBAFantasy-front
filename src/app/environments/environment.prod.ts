@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://fantasystatsback.azurewebsites.net',
+  baseUrl: 'https://nbafantasy-back.azurewebsites.net',
   name: 'production'
 };
