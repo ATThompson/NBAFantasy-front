@@ -3,23 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CallbackComponent } from './callback/callback.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthHeaderInterceptor } from './auth-header.interceptor';
+import { AuthHeaderInterceptor } from './shared/interceptors/auth-header.interceptor';
+import { HomeComponent } from './home/home.component';
+import { AuthentificationModule } from './authentification/authentification.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CallbackComponent,
-    HomeComponent,
-    LoginComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     {

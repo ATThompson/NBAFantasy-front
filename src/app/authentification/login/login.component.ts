@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import {SecurityService} from "../security.service";
+import { OauthService } from 'src/app/authentification/shared/services/oauth.service';
 
 @Component({
   selector: 'fs-login',
@@ -8,19 +9,12 @@ import {SecurityService} from "../security.service";
 })
 export class LoginComponent implements OnInit {
 
-  redirectUrl!: string;
-
-  constructor(private securityService: SecurityService) { }
+  constructor(private securityService: OauthService) { }
 
   ngOnInit(): void {
   }
 
   login() {
     this.securityService.login();
-  }
-
-  loginState() {
-
-    //window.open(uri);
   }
 }

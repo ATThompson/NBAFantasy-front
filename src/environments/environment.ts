@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //baseUrl: 'https://fantasystatsback.azurewebsites.net'
-  name: "localhost",
+  name: "development",
   baseUrl: 'http://localhost:8080'
 };
 

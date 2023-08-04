@@ -1,9 +1,8 @@
+import { TokenStorageService } from './../shared/services/tokenStorage.service';
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {SecurityService} from "../security.service";
 import {Router} from "@angular/router";
-import { environment } from '../environments/environment';
+import { OauthService } from 'src/app/authentification/shared/services/oauth.service';
 
 @Component({
   selector: 'fs-home',
@@ -15,31 +14,22 @@ export class HomeComponent implements OnInit {
   name: any;
   test!: Object;
 
-  constructor(private http: HttpClient, private securityService: SecurityService,
+  constructor(private http: HttpClient, private securityService: OauthService,private tokenStorageService:TokenStorageService,
               private router: Router) {
   }
 
   ngOnInit(): void {
-
-    this.getUserInfo().subscribe(data => this.name = data.name);
-    this.http.get(environment.baseUrl + '/v1/home/hello').subscribe();
-    this.http.get(environment.baseUrl + '/v1/home/infos').subscribe(data => this.test = data);
-  }
-
-  getUserInfo(): Observable<any> {
-    return this.http.get(environment.baseUrl + '/v1/home');
   }
 
   infos(){
-
-    this.http.get(environment.baseUrl,  {responseType: 'text'}).subscribe(data=> console.log(data));
+    this.securityService.refreshAccessToken()
   }
 
   logout()
   {
     this.securityService.logout() .subscribe(() => {
-      this.securityService.removeToken();
-      this.router.navigate(['/login']);
+      this.tokenStorageService.removeAccessToken();
+      this.router.navigate(['/auth']);
     });
   }
 }
